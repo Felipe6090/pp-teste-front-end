@@ -1,18 +1,10 @@
 import { useState, createContext, Dispatch } from "react";
 
+import { IContributors } from "../../Types/Api";
+
 type IProviderTypes = {
   children: JSX.Element | JSX.Element[];
   state?: any;
-};
-
-type IContributors = {
-  agent_id: string;
-  name: string;
-  image: string;
-  department: string;
-  branch: string;
-  role: string;
-  status: string;
 };
 
 type IContextValue = {

@@ -1,10 +1,18 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-import HomeScreen from "../src/Components/Screens/Home";
-import { RolesProvider } from "../src/Contexts/RolesContext";
+
 import { api } from "../src/Services/Api";
 
+import HomeScreen from "../src/Components/Screens/Home";
+
+import { RolesProvider } from "../src/Contexts/RolesContext";
+import { IRoles, IRolesApisRawData } from "../src/Types/Api";
+
 export const getStaticProps: GetStaticProps = async (context) => {
-  const rolesData = await api.get("/roles").then((res) => res.data);
+  const rolesRawData: IRolesApisRawData = await api
+    .get("/roles")
+    .then((res) => res.data);
+
+  const rolesData: IRoles[] = rolesRawData.roles;
 
   return {
     props: { roles: rolesData },

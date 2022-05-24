@@ -1,14 +1,10 @@
 import { useState, createContext, Dispatch } from "react";
 
+import { IRoles } from "../../Types/Api";
+
 type IProviderTypes = {
   children: JSX.Element | JSX.Element[];
   state?: any;
-};
-
-type IRoles = {
-  name: string;
-  department: string;
-  agents_quantity: number;
 };
 
 type IContextValue = {

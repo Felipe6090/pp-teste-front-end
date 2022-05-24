@@ -5,9 +5,14 @@ import HomeScreen from "../src/Components/Screens/Home";
 import { ContributorsProvider } from "../src/Contexts/ContributorsContext";
 
 import { api } from "../src/Services/Api";
+import { IContributors, IContributorsRawData } from "../src/Types/Api";
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const contributorsData = await api.get("/agents").then((res) => res.data);
+  const contributorsRawData: IContributorsRawData = await api
+    .get("/agents")
+    .then((res) => res.data);
+
+  const contributorsData: IContributors[] = contributorsRawData.items;
 
   return {
     props: { contributors: contributorsData },
