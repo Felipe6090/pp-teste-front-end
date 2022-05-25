@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Image from "next/image";
 
 import { RolesContext } from "../../../Contexts/RolesContext";
 
@@ -14,21 +15,32 @@ export default function RolesList() {
 
       <S.Table>
         <S.TableHead>
-          <S.TableRow>
-            <S.TH>Cargo</S.TH>
-            <S.TH>Departamento</S.TH>
-            <S.TH>Colaboradores</S.TH>
-          </S.TableRow>
+          <S.HeadColumn width="163.5px">Cargo</S.HeadColumn>
+          <S.HeadColumn width="191.5px">Departamento</S.HeadColumn>
+          <S.HeadColumn width="456px" lastChild>
+            Colaboradores
+          </S.HeadColumn>
         </S.TableHead>
 
         <S.TableBody>
           {rolesData.map((role) => {
             return (
-              <S.TableRow key={Math.random()}>
-                <S.TD>{role.name}</S.TD>
-                <S.TD>{role.department}</S.TD>
-                <S.TD>{role.agents_quantity}</S.TD>
-              </S.TableRow>
+              <S.BodyRow key={Math.random()} status="active">
+                <S.BodyColumn width="163.5px">{role.name}</S.BodyColumn>
+                <S.BodyColumn width="191.5px">{role.departament}</S.BodyColumn>
+                <S.BodyColumn width="456px">
+                  {role.agents_quantity}
+                </S.BodyColumn>
+
+                <Image
+                  src="/more-vertical.png"
+                  alt="More options button"
+                  layout="fixed"
+                  width={24}
+                  height={24}
+                  style={{ cursor: "pointer" }}
+                />
+              </S.BodyRow>
             );
           })}
         </S.TableBody>

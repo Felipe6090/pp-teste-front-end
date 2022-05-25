@@ -1,10 +1,10 @@
 import { useContext } from "react";
+import Image from "next/image";
 
 import { ContributorsContext } from "../../../Contexts/ContributorsContext";
 
 import * as S from "./style";
 import * as T from "../../Foundations/Typography";
-import Image from "next/image";
 
 export default function ContributorsList() {
   const { contributorsData } = useContext(ContributorsContext);

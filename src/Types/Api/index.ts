@@ -1,6 +1,6 @@
 export type IRoles = {
   name: string;
-  department: string;
+  departament: string;
   agents_quantity: number;
 };
 

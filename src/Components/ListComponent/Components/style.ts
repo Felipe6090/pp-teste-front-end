@@ -11,9 +11,9 @@ export const Table = styled.div`
   display: flex;
   flex-direction: column;
 
-  align-self: center;
+  max-width: 902px;
 
-  min-width: 75%;
+  align-self: center;
 `;
 
 export const TableHead = styled.div`
@@ -23,8 +23,10 @@ export const TableHead = styled.div`
   align-items: center;
 
   border: 1px solid #cad6d1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 
-  padding-left: 16px;
+  padding: 0 16px;
 `;
 
 export const HeadColumn = styled.span`
@@ -60,7 +62,7 @@ export const BodyColumn = styled.span`
   font-weight: 600;
 
   width: ${(props: IStyled) => props.width};
-  margin-right: 30.8px;
+  margin-right: 32.5px;
 
   display: flex;
   align-items: center;
@@ -91,6 +93,10 @@ export const StatusDiv = styled.div`
   align-items: center;
 
   justify-content: space-between;
+
+  img {
+    cursor: pointer;
+  }
 `;
 
 export const ActivedLabel = styled.div`
@@ -102,11 +108,11 @@ export const ActivedLabel = styled.div`
 
   font-family: "Poppins", sans-serif;
   font-size: 14px;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   color: #34423d;
 `;
 
