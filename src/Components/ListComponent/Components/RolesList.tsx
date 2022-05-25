@@ -8,8 +8,6 @@ import * as T from "../../Foundations/Typography";
 export default function RolesList() {
   const { rolesData } = useContext(RolesContext);
 
-  console.log(rolesData);
-
   return (
     <>
       <T.SemiBoldPoppins fontSize="16px">Listagem de cargos</T.SemiBoldPoppins>
@@ -24,11 +22,15 @@ export default function RolesList() {
         </S.TableHead>
 
         <S.TableBody>
-          <S.TableRow>
-            <S.TD>Supervisor</S.TD>
-            <S.TD>SAC</S.TD>
-            <S.TD>2</S.TD>
-          </S.TableRow>
+          {rolesData.map((role) => {
+            return (
+              <S.TableRow key={Math.random()}>
+                <S.TD>{role.name}</S.TD>
+                <S.TD>{role.department}</S.TD>
+                <S.TD>{role.agents_quantity}</S.TD>
+              </S.TableRow>
+            );
+          })}
         </S.TableBody>
       </S.Table>
     </>
