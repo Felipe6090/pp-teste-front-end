@@ -10,9 +10,9 @@ export default function RoleRoleComponent() {
       <T.SemiBoldPoppins fontSize="32">Dados do cargo</T.SemiBoldPoppins>
 
       <S.InputsDiv>
-        <InputComponent placeholder="SAC" label="Departamento" />
+        <InputComponent value="SAC" label="Departamento" />
 
-        <InputComponent placeholder="Analista" label="Cargo" />
+        <InputComponent value="Analista" label="Cargo" />
       </S.InputsDiv>
 
       <T.SemiBoldPoppins fontSize="32">Listagem de Permisões</T.SemiBoldPoppins>

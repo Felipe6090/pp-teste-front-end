@@ -1,15 +1,15 @@
 import * as S from "./style";
 
 type IProps = {
-  placeholder: string;
+  value: string;
   label: string;
 };
 
-export default function InputComponent({ placeholder, label }: IProps) {
+export default function InputComponent({ value, label }: IProps) {
   return (
     <S.MainDiv>
-      <S.SearchLabel htmlFor={label}>{label}</S.SearchLabel>
-      <S.SearchInput name={label} type="text" placeholder={placeholder} />
+      <S.Label htmlFor={label}>{label}</S.Label>
+      <S.Input name={label} type="text" value={value} disabled />
     </S.MainDiv>
   );
 }

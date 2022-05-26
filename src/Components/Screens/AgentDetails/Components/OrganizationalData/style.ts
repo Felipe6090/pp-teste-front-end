@@ -1,21 +1,37 @@
 import styled from "@emotion/styled";
 
 export const MainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  border: 2px solid #eaefed;
+
+  gap: 50px;
+`;
+
+export const DatasColumn = styled.div`
+  display: flex;
+  gap: 24px;
+`;
+
+export const SelectDiv = styled.div`
   border: solid 1px #587169;
   border-radius: 5px;
 
   position: relative;
 
   min-height: 56px;
-  width: 40%;
+  width: 418px;
 
   padding: 0 20px;
+
+  background-color: #f5faf8;
 
   display: flex;
   align-items: center;
 `;
 
-export const Input = styled.input`
+export const DataSelect = styled.select`
   border: none;
   outline: 0;
 
@@ -24,17 +40,19 @@ export const Input = styled.input`
 
   color: #587169;
 
-  width: 100%;
+  background-color: #f5faf8;
 
-  background-color: #fff;
+  width: 100%;
 `;
+
+export const DataOptions = styled.option``;
 
 export const Label = styled.label`
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   color: #a3b8b0;
 
-  background-color: #fff;
+  background-color: #f5faf8;
 
   position: absolute;
   padding: 0 5px;

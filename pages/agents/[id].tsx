@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import AgentDetailsScreen from "../../src/Components/Screens/AgentDetails";
 
 import { api } from "../../src/Services/Api";
 
@@ -9,8 +10,6 @@ import {
   IContributorsRawData,
 } from "../../src/Types/Api";
 
-import RoleComponent from "../../src/Components/Screens/Role";
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const agentsRawData: IContributorsRawData = await api
     .get("/agents")
@@ -19,7 +18,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const agentsData: IContributors[] = agentsRawData.items;
 
   const paths = agentsData.map((agent) => {
-    const param = agent.agent_id;
+    const param = String(agent.agent_id);
 
     return {
       params: {
@@ -51,5 +50,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function AgentDetails({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <RoleComponent />;
+  return <AgentDetailsScreen />;
 }

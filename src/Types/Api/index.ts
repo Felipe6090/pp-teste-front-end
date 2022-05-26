@@ -24,7 +24,7 @@ export type IRolesApisRawData = {
 };
 
 export type IContributors = {
-  agent_id: string;
+  agent_id: number;
   name: string;
   image: string;
   department: string;
