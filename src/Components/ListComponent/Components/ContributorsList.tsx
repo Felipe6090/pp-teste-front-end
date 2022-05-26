@@ -1,13 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 
 import { ContributorsContext } from "../../../Contexts/ContributorsContext";
+
+import AgentModal from "../../Modals/AgentModal";
 
 import * as S from "./style";
 import * as T from "../../Foundations/Typography";
 
 export default function ContributorsList() {
   const { contributorsData } = useContext(ContributorsContext);
+
+  const [modalController, setModalController] = useState(false);
 
   return (
     <>
@@ -49,6 +53,8 @@ export default function ContributorsList() {
                     layout="fixed"
                     width={24}
                     height={24}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setModalController(!modalController)}
                   />
                 </S.StatusDiv>
               </S.BodyRow>
@@ -56,6 +62,11 @@ export default function ContributorsList() {
           })}
         </S.TableBody>
       </S.Table>
+
+      <AgentModal
+        isOpen={modalController}
+        onClose={() => setModalController(!modalController)}
+      />
     </>
   );
 }

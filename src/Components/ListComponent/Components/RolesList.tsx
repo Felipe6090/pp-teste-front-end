@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 
 import { RolesContext } from "../../../Contexts/RolesContext";
 
 import * as S from "./style";
 import * as T from "../../Foundations/Typography";
+import RolesModal from "../../Modals/RolesModal";
 
 export default function RolesList() {
   const { rolesData } = useContext(RolesContext);
+
+  const [modalController, setModalController] = useState(false);
 
   return (
     <>
@@ -39,12 +42,18 @@ export default function RolesList() {
                   width={24}
                   height={24}
                   style={{ cursor: "pointer" }}
+                  onClick={() => setModalController(!modalController)}
                 />
               </S.BodyRow>
             );
           })}
         </S.TableBody>
       </S.Table>
+
+      <RolesModal
+        isOpen={modalController}
+        onClose={() => setModalController(!modalController)}
+      />
     </>
   );
 }

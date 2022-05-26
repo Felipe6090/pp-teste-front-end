@@ -93,10 +93,6 @@ export const StatusDiv = styled.div`
   align-items: center;
 
   justify-content: space-between;
-
-  img {
-    cursor: pointer;
-  }
 `;
 
 export const ActivedLabel = styled.div`
