@@ -9,7 +9,7 @@ export const MainDiv = styled.div`
   gap: 50px;
 `;
 
-export const DatasColumn = styled.div`
+export const SelectsRow = styled.div`
   display: flex;
   gap: 24px;
 `;
