@@ -1,16 +1,17 @@
 import styled from "@emotion/styled";
 
+type IStyled = {
+  gap?: string;
+};
+
 export const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
 
   border: 2px solid #eaefed;
 
-  gap: 50px;
-`;
+  padding: 24px 24px;
 
-export const SelectsRow = styled.div`
-  display: flex;
   gap: 24px;
 `;
 
@@ -21,7 +22,7 @@ export const SelectDiv = styled.div`
   position: relative;
 
   min-height: 56px;
-  width: 418px;
+  width: 100%;
 
   padding: 0 20px;
 
@@ -29,6 +30,8 @@ export const SelectDiv = styled.div`
 
   display: flex;
   align-items: center;
+
+  cursor: pointer;
 `;
 
 export const DataSelect = styled.select`

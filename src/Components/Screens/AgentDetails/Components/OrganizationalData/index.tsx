@@ -1,5 +1,6 @@
 import * as S from "./style";
 import * as T from "../../../../Foundations/Typography";
+import * as U from "../../../../Foundations/Utils";
 
 import Mock from "./Mocks";
 
@@ -14,7 +15,7 @@ export default function OrganizationalData() {
     <S.MainDiv>
       <T.RegularPoppins fontSize="18px">Dados organizacionais</T.RegularPoppins>
 
-      <S.SelectsRow>
+      <U.DefaultRow>
         <S.SelectDiv>
           <S.Label>Departamento</S.Label>
           <S.DataSelect defaultValue={"Comercial"}>
@@ -36,9 +37,9 @@ export default function OrganizationalData() {
             ))}
           </S.DataSelect>
         </S.SelectDiv>
-      </S.SelectsRow>
+      </U.DefaultRow>
 
-      <S.SelectsRow>
+      <U.DefaultRow>
         <S.SelectDiv>
           <S.Label>Unidade</S.Label>
           <S.DataSelect defaultValue={"Unidade 1"}>
@@ -58,7 +59,7 @@ export default function OrganizationalData() {
             <S.DataOptions value="Inativo">Inativo</S.DataOptions>
           </S.DataSelect>
         </S.SelectDiv>
-      </S.SelectsRow>
+      </U.DefaultRow>
     </S.MainDiv>
   );
 }

@@ -8,5 +8,5 @@ export const MainDiv = styled.div`
   padding: 10px 30px;
   align-items: center;
 
-  border: 1px solid #eaefed;
+  border: 2px solid #eaefed;
 `;
