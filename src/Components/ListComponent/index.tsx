@@ -16,11 +16,22 @@ export default function ListComponent() {
     <S.MainDiv>
       <S.NavLinks>
         <Link href="/" passHref>
-          <T.NavLink>Colaboradores</T.NavLink>
+          <T.NavLink
+            pathsHandler={{ pathName: router.pathname, correspondingPath: "/" }}
+          >
+            Colaboradores
+          </T.NavLink>
         </Link>
 
         <Link href="/positions" passHref>
-          <T.NavLink>Cargos</T.NavLink>
+          <T.NavLink
+            pathsHandler={{
+              pathName: router.pathname,
+              correspondingPath: "/positions",
+            }}
+          >
+            Cargos
+          </T.NavLink>
         </Link>
       </S.NavLinks>
 

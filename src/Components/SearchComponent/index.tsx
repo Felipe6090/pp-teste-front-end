@@ -14,9 +14,26 @@ export default function SearchComponent() {
         placeholder={
           router.pathname === "/"
             ? "Pesquise por nome ou cpf"
-            : router.pathname === "/positions" && "Pesquise por cargos"
+            : "Pesquise por cargos"
         }
       />
     </S.MainDiv>
   );
 }
+
+/*
+ 
+lembra de fazer algum teste em relação ao placeholder depois
+
+como era:
+
+router.pathname === "/"
+            ? "Pesquise por nome ou cpf"
+            : router.pathname === "/positions" && "Pesquise por cargos"
+
+error:
+
+Type 'false | "Pesquise por nome ou cpf" | "Pesquise por cargos"' is not assignable to type 'string | undefined'.
+  Type 'boolean' is not assignable to type 'string'.
+
+*/

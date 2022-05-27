@@ -4,14 +4,18 @@ export const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
 
-  gap: 20px;
+  gap: 40px;
 
   background-color: #fff;
 
-  padding: 25px 10px;
+  padding: 50px 24px;
 `;
 
 export const NavLinks = styled.div`
   display: flex;
   border-bottom: 1px solid #eaefed;
+
+  max-height: 30px;
+
+  align-items: flex-start;
 `;

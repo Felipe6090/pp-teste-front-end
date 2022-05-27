@@ -3,6 +3,11 @@ import styled from "@emotion/styled";
 type StylesProps = {
   fontSize?: string;
   fontColor?: string;
+
+  pathsHandler?: {
+    pathName: string;
+    correspondingPath: string;
+  };
 };
 
 export const SemiBoldPoppins = styled.span`
@@ -23,11 +28,20 @@ export const RegularPoppins = styled.span`
 export const NavLink = styled.a`
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+  font-weight: 600;
 
   font-size: 14px;
-  color: #34423d;
 
-  margin-bottom: 5px;
+  ${(props: StylesProps) =>
+    props.pathsHandler?.correspondingPath === props.pathsHandler?.pathName
+      ? `
+      color: #34423D;
+      border-bottom: 1px solid #22E0A1;
+      `
+      : `color: #A3B8B0;`};
+
   min-width: 196px;
+  height: 30px;
+
   text-align: center;
 `;

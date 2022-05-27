@@ -21,11 +21,11 @@ export default function ContributorsList() {
 
       <S.Table>
         <S.TableHead>
-          <S.HeadColumn width="196px">Nome Completo</S.HeadColumn>
-          <S.HeadColumn width="124px">Departamento</S.HeadColumn>
-          <S.HeadColumn width="96px">Cargo</S.HeadColumn>
-          <S.HeadColumn width="142px">Unidade</S.HeadColumn>
-          <S.HeadColumn width="182px" lastChild>
+          <S.HeadColumn width="25%">Nome Completo</S.HeadColumn>
+          <S.HeadColumn width="15%">Departamento</S.HeadColumn>
+          <S.HeadColumn width="15%">Cargo</S.HeadColumn>
+          <S.HeadColumn width="20%">Unidade</S.HeadColumn>
+          <S.HeadColumn width="25%" lastChild>
             Status
           </S.HeadColumn>
         </S.TableHead>
@@ -34,12 +34,12 @@ export default function ContributorsList() {
           {contributorsData.map((item) => {
             return (
               <S.BodyRow key={item.agent_id} status={item.status}>
-                <S.BodyColumn width="196px" avatar={item.image}>
+                <S.BodyColumn width="25%" avatar={item.image}>
                   {item.name}
                 </S.BodyColumn>
-                <S.BodyColumn width="124px">{item.department}</S.BodyColumn>
-                <S.BodyColumn width="96px">{item.role}</S.BodyColumn>
-                <S.BodyColumn width="142px">{item.branch}</S.BodyColumn>
+                <S.BodyColumn width="15%">{item.department}</S.BodyColumn>
+                <S.BodyColumn width="15%">{item.role}</S.BodyColumn>
+                <S.BodyColumn width="20%">{item.branch}</S.BodyColumn>
                 <S.StatusDiv>
                   {item.status === "active" ? (
                     <S.ActivedLabel>Ativo</S.ActivedLabel>

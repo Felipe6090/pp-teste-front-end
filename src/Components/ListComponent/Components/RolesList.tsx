@@ -18,9 +18,9 @@ export default function RolesList() {
 
       <S.Table>
         <S.TableHead>
-          <S.HeadColumn width="163.5px">Cargo</S.HeadColumn>
-          <S.HeadColumn width="191.5px">Departamento</S.HeadColumn>
-          <S.HeadColumn width="456px" lastChild>
+          <S.HeadColumn width="25%">Cargo</S.HeadColumn>
+          <S.HeadColumn width="25%">Departamento</S.HeadColumn>
+          <S.HeadColumn width="50%" lastChild>
             Colaboradores
           </S.HeadColumn>
         </S.TableHead>

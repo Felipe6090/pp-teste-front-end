@@ -1,17 +1,19 @@
 import styled from "@emotion/styled";
 
-type IStyled = {
+interface IStyled {
   width?: string;
   lastChild?: boolean;
   status?: string;
   avatar?: string;
-};
+}
+
+interface ITableColumn extends IStyled {
+  width: string;
+}
 
 export const Table = styled.div`
   display: flex;
   flex-direction: column;
-
-  max-width: 902px;
 
   align-self: center;
 `;
@@ -35,7 +37,7 @@ export const HeadColumn = styled.span`
   font-weight: 600;
   color: #587169;
 
-  width: ${(props: IStyled) => props.width};
+  width: ${(props: ITableColumn) => props.width};
   margin-right: ${(props: IStyled) => (props.lastChild ? "0" : "32.5px")};
 `;
 
@@ -61,7 +63,7 @@ export const BodyColumn = styled.span`
   font-size: 12px;
   font-weight: 600;
 
-  width: ${(props: IStyled) => props.width};
+  width: ${(props: ITableColumn) => props.width};
   margin-right: 32.5px;
 
   display: flex;
@@ -87,7 +89,7 @@ export const BodyColumn = styled.span`
 `;
 
 export const StatusDiv = styled.div`
-  width: 182px;
+  width: 25%;
 
   display: flex;
   align-items: center;

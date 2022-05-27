@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const MainDiv = styled.div`
-  border: solid 1px #587169;
+  border: solid 1px #cad6d1;
   border-radius: 5px;
 
   position: relative;
@@ -27,8 +27,6 @@ export const SearchInput = styled.input`
   font-size: 16px;
 
   color: #587169;
-
-  width: 100%;
 `;
 
 export const SearchLabel = styled.label`
