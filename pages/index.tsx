@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType, GetStaticProps, NextPage } from "next";
 
-import HomeScreen from "../src/Components/Screens/Home";
+import HomeScreen from "../src/Screens/Home";
 
 import { ContributorsProvider } from "../src/Contexts/ContributorsContext";
 

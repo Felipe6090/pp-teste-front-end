@@ -1,6 +1,6 @@
 import * as S from "./style";
-import * as T from "../../Foundations/Typography";
-import * as U from "../../Foundations/Utils";
+import * as T from "../../Components/Foundations/Typography";
+import * as U from "../../Components/Foundations/Utils";
 
 import Image from "next/image";
 import Link from "next/link";

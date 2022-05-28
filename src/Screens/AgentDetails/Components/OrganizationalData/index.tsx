@@ -1,6 +1,6 @@
 import * as S from "./style";
-import * as T from "../../../../Foundations/Typography";
-import * as U from "../../../../Foundations/Utils";
+import * as T from "../../../../Components/Foundations/Typography";
+import * as U from "../../../../Components/Foundations/Utils";
 
 import Mock from "./Mocks";
 

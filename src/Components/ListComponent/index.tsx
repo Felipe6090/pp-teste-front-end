@@ -1,4 +1,5 @@
-import * as S from "./style";
+import * as S from "./style"
+import * as U from "../Foundations/Utils";
 import * as T from "../Foundations/Typography";
 
 import Link from "next/link";
@@ -13,7 +14,7 @@ export default function ListComponent() {
   const router = useRouter();
 
   return (
-    <S.MainDiv>
+    <U.DefaultTable>
       <S.NavLinks>
         <Link href="/" passHref>
           <T.NavLink
@@ -42,6 +43,6 @@ export default function ListComponent() {
       ) : (
         router.pathname === "/positions" && <RolesList />
       )}
-    </S.MainDiv>
+    </U.DefaultTable>
   );
 }

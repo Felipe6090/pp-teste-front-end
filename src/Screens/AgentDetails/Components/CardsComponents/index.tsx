@@ -1,5 +1,5 @@
 import * as S from "./style";
-import * as T from "../../../../Foundations/Typography";
+import * as T from "../../../../Components/Foundations/Typography";
 
 import Image from "next/image";
 

@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import AgentDetailsScreen from "../../src/Components/Screens/AgentDetails";
+import AgentDetailsScreen from "../../src/Screens/AgentDetails";
 
 import { api } from "../../src/Services/Api";
 

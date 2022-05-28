@@ -6,6 +6,7 @@ import { ContributorsContext } from "../../../Contexts/ContributorsContext";
 import AgentModal from "../../Modals/AgentModal";
 
 import * as S from "./style";
+import * as U from "../../Foundations/Utils";
 import * as T from "../../Foundations/Typography";
 
 export default function ContributorsList() {
@@ -19,7 +20,7 @@ export default function ContributorsList() {
         Listagem de colaboradores
       </T.SemiBoldPoppins>
 
-      <S.Table>
+      <U.DefaultColumn alignSelf="center">
         <S.TableHead>
           <S.HeadColumn width="25%">Nome Completo</S.HeadColumn>
           <S.HeadColumn width="15%">Departamento</S.HeadColumn>
@@ -61,7 +62,7 @@ export default function ContributorsList() {
             );
           })}
         </S.TableBody>
-      </S.Table>
+      </U.DefaultColumn>
 
       <AgentModal
         isOpen={modalController}

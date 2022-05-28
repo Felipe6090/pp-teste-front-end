@@ -2,7 +2,7 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 
 import { api } from "../src/Services/Api";
 
-import HomeScreen from "../src/Components/Screens/Home";
+import HomeScreen from "../src/Screens/Home";
 
 import { RolesProvider } from "../src/Contexts/RolesContext";
 import { IRoles, IRolesApisRawData } from "../src/Types/Api";

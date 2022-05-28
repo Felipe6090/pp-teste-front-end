@@ -11,13 +11,6 @@ interface ITableColumn extends IStyled {
   width: string;
 }
 
-export const Table = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-self: center;
-`;
-
 export const TableHead = styled.div`
   height: 50px;
   display: flex;

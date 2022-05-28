@@ -9,7 +9,7 @@ import {
   IRolesApisRawData,
 } from "../../src/Types/Api";
 
-import RoleComponent from "../../src/Components/Screens/Role";
+import RoleComponent from "../../src/Screens/Role";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const rolesRawData: IRolesApisRawData = await api

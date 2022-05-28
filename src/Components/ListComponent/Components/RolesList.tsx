@@ -5,6 +5,8 @@ import { RolesContext } from "../../../Contexts/RolesContext";
 
 import * as S from "./style";
 import * as T from "../../Foundations/Typography";
+import * as U from "../../Foundations/Utils";
+
 import RolesModal from "../../Modals/RolesModal";
 
 export default function RolesList() {
@@ -16,7 +18,7 @@ export default function RolesList() {
     <>
       <T.SemiBoldPoppins fontSize="16px">Listagem de cargos</T.SemiBoldPoppins>
 
-      <S.Table>
+      <U.DefaultColumn>
         <S.TableHead>
           <S.HeadColumn width="25%">Cargo</S.HeadColumn>
           <S.HeadColumn width="25%">Departamento</S.HeadColumn>
@@ -48,7 +50,7 @@ export default function RolesList() {
             );
           })}
         </S.TableBody>
-      </S.Table>
+      </U.DefaultColumn>
 
       <RolesModal
         isOpen={modalController}
