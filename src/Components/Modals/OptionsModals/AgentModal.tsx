@@ -2,6 +2,8 @@ import * as S from "./styles";
 
 import Link from "next/link";
 
+import Backdrop from "@mui/material/Backdrop";
+
 type IType = {
   isOpen: boolean;
   onClose: () => void;
@@ -11,7 +13,12 @@ type IType = {
 
 export default function AgentModal({ isOpen, onClose, position, id }: IType) {
   return (
-    <S.ModalMain open={isOpen} onClose={onClose} position={position}>
+    <S.ModalMain
+      open={isOpen}
+      onClose={onClose}
+      position={position}
+      disableScrollLock
+    >
       <S.ModalDiv>
         <Link href={`agents/${id}`}>
           <S.Options image="eye.png">Ver colaborador</S.Options>

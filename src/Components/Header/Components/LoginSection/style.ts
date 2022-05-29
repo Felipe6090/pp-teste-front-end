@@ -6,6 +6,11 @@ export const MainDiv = styled.div`
   align-items: center;
 
   gap: 10px;
+
+  border-left: 1px solid #eaefed;
+  padding-left: 32px;
+
+  height: 60px;
 `;
 
 export const TextDiv = styled.div`

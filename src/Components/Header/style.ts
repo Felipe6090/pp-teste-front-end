@@ -5,8 +5,20 @@ export const MainDiv = styled.div`
 
   justify-content: space-between;
 
-  padding: 10px 30px;
   align-items: center;
 
-  border: 2px solid #eaefed;
+  padding: 0 30px;
+
+  border-bottom: 2px solid #eaefed;
+`;
+
+export const HelperDiv = styled.div`
+  display: flex;
+
+  align-items: center;
+  
+  border-right: 1px solid #eaefed;
+  padding-right: 32px;
+
+  height: 60px;
 `;

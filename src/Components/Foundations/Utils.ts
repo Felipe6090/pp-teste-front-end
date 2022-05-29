@@ -31,9 +31,7 @@ export const DefaultColumn = styled.div`
 
 export const Aside = styled.aside`
   width: 7.5%;
-  border: 2px solid #eaefed;
-
-  border-top: none;
+  border-right: 2px solid #eaefed;
 `;
 
 export const DefaultTable = styled.div`

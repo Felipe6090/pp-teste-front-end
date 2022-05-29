@@ -11,15 +11,24 @@ type IType = {
 
 export default function RolesModal({ isOpen, onClose, position, name }: IType) {
   return (
-    <S.ModalMain open={isOpen} onClose={onClose} position={position}>
+    <S.ModalMain
+      open={isOpen}
+      onClose={onClose}
+      position={position}
+      disableScrollLock
+    >
       <S.ModalDiv>
         <Link href={`/positions/${name}`}>
           <S.Options image="eye.png">Ver cargo</S.Options>
         </Link>
 
-        <S.Options image="edit.png">Editar</S.Options>
+        <S.Options image="edit.png" onClick={() => onClose()}>
+          Editar
+        </S.Options>
 
-        <S.Options image="duplicate.png">Duplicar</S.Options>
+        <S.Options image="duplicate.png" onClick={() => onClose()}>
+          Duplicar
+        </S.Options>
 
         <S.Options image="repeat.png" onClick={() => onClose()}>
           Excluir
