@@ -36,13 +36,13 @@ export default function RoleComponent({ role }: IProps) {
       <U.DefaultTable>
         <T.SemiBoldPoppins fontSize="16px">Dados do cargo</T.SemiBoldPoppins>
 
-        <U.DefaultRow gap="0" justifyContent="space-between">
+        <U.DefaultRow column gap="40px" justifyContent="space-between">
           <InputComponent value={role.department} label="Departamento" />
 
           <InputComponent value={role.name} label="Cargo" />
         </U.DefaultRow>
 
-        <T.SemiBoldPoppins fontSize="32">
+        <T.SemiBoldPoppins fontSize="16px">
           Listagem de Permisões
         </T.SemiBoldPoppins>
 

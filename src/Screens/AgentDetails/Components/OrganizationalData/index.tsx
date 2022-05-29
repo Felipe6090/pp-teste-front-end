@@ -15,7 +15,7 @@ export default function OrganizationalData({ agentData }: IProps) {
     <S.MainDiv>
       <T.RegularPoppins fontSize="18px">Dados organizacionais</T.RegularPoppins>
 
-      <U.DefaultRow>
+      <U.DefaultRow column>
         <S.SelectDiv>
           <S.Label htmlFor="department">Departamento</S.Label>
           <S.DataSelect
@@ -43,7 +43,7 @@ export default function OrganizationalData({ agentData }: IProps) {
         </S.SelectDiv>
       </U.DefaultRow>
 
-      <U.DefaultRow>
+      <U.DefaultRow column>
         <S.SelectDiv>
           <S.Label htmlFor="branch">Unidade</S.Label>
           <S.DataSelect

@@ -31,9 +31,3 @@ export const NameColumn = styled.div`
 
   justify-content: center;
 `;
-
-export const PersonalInfosDiv = styled.div`
-  display: flex;
-
-  gap: 24px;
-`;

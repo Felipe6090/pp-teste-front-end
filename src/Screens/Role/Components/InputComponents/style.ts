@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { devices } from "../../../../Utils/Devices";
 
 export const MainDiv = styled.div`
   border: solid 1px #587169;
@@ -7,12 +8,16 @@ export const MainDiv = styled.div`
   position: relative;
 
   min-height: 56px;
-  width: 40%;
+  width: 100%;
 
   padding: 0 20px;
 
   display: flex;
   align-items: center;
+
+  ${devices.laptop} {
+    width: auto;
+  }
 `;
 
 export const Input = styled.input`

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { devices } from "../../../../Utils/Devices";
 
 export const MainDiv = styled.div`
   display: flex;
@@ -11,6 +12,11 @@ export const MainDiv = styled.div`
   padding-left: 32px;
 
   height: 60px;
+
+  ${devices.laptop} {
+    border: none;
+    padding: 0;
+  }
 `;
 
 export const TextDiv = styled.div`
@@ -20,4 +26,8 @@ export const TextDiv = styled.div`
   gap: 5px;
 
   align-items: flex-start;
+
+  ${devices.laptop} {
+    display: none;
+  }
 `;

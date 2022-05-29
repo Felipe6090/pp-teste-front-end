@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { devices } from "../../Utils/Devices";
 
 type IStyled = {
   gap?: string;
@@ -6,6 +7,7 @@ type IStyled = {
   padding?: string;
   justifyContent?: string;
   alignSelf?: string;
+  column?: boolean;
 };
 
 export const DefaultRow = styled.div`
@@ -18,6 +20,10 @@ export const DefaultRow = styled.div`
     `justify-content: ${props.justifyContent};`}
 
   margin: ${(props: IStyled) => props.margin || "0"};
+
+  ${devices.laptop} {
+    ${(props: IStyled) => props.column === true && `flex-direction: column;`}
+  }
 `;
 
 export const DefaultColumn = styled.div`
@@ -32,6 +38,10 @@ export const DefaultColumn = styled.div`
 export const Aside = styled.aside`
   width: 7.5%;
   border-right: 2px solid #eaefed;
+
+  ${devices.laptop} {
+    display: none;
+  }
 `;
 
 export const DefaultTable = styled.div`
@@ -42,6 +52,10 @@ export const DefaultTable = styled.div`
 
   background-color: #fff;
   padding: ${(props: IStyled) => props.padding || "40px 24px"};
+
+  ${devices.laptop} {
+    padding: 40px 2%;
+  }
 `;
 
 export const DefaultBackground = styled.div`

@@ -62,7 +62,7 @@ export default function AgentDetailsScreen({ agentData }: IProps) {
           Informações pessoais
         </T.SemiBoldPoppins>
 
-        <S.PersonalInfosDiv>
+        <U.DefaultRow gap="24px" column>
           <CardComponent
             cardName="CPF"
             cardInfo={cpfMask(agentData.document.number)}
@@ -80,7 +80,7 @@ export default function AgentDetailsScreen({ agentData }: IProps) {
             cardInfo={dayjs(agentData.birth_date).format("DD/MM/YYYY")}
             img="/calendar-icon.png"
           />
-        </S.PersonalInfosDiv>
+        </U.DefaultRow>
 
         <OrganizationalData agentData={agentData} />
       </U.DefaultTable>
