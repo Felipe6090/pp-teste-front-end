@@ -1,6 +1,5 @@
 import * as S from "./styles";
 
-import { IContributorData } from "../../../Types/Api";
 import Link from "next/link";
 
 type IType = {

@@ -3,13 +3,11 @@ import Image from "next/image";
 
 import { ContributorsContext } from "../../../Contexts/ContributorsContext";
 
-import AgentModal from "../../Modals/AgentModal";
+import AgentModal from "../../Modals/OptionsModals/AgentModal";
 
 import * as S from "./style";
 import * as U from "../../Foundations/Utils";
 import * as T from "../../Foundations/Typography";
-
-import { IContributorData } from "../../../Types/Api";
 
 export default function ContributorsList() {
   const { contributorsData } = useContext(ContributorsContext);
@@ -19,8 +17,6 @@ export default function ContributorsList() {
   const [id, setId] = useState(0);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  function showOptionsController(id: number) {}
 
   return (
     <>

@@ -11,7 +11,7 @@ type IGroupRules = {
 
 export type IRoleDescription = {
   name: string;
-  departament: string;
+  department: string;
   grouprules: IGroupRules[];
 };
 

@@ -35,21 +35,38 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const rolesRawData: IRoleDescriptionRawData = await api
+  if (!context.params) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  const response = await api
     .get(`/role/1`)
-    .then((res) => res.data);
+    .then((res) => {
+      return {
+        props: {
+          data: res.data.role,
+        },
+      };
+    })
+    .catch((err) => {
+      return {
+        props: {
+          data: null,
+        },
+        notFound: true,
+      };
+    });
 
-  const rolesData: IRoleDescription = rolesRawData.role;
-
-  return {
-    props: {
-      data: rolesData,
-    },
-  };
+  return response;
 };
 
 export default function Role({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <RoleComponent />;
+  return <RoleComponent role={data} />;
 }

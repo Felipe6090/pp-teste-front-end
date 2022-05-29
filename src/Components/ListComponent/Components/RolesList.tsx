@@ -3,17 +3,20 @@ import Image from "next/image";
 
 import { RolesContext } from "../../../Contexts/RolesContext";
 
-import * as S from "./style";
 import * as U from "../../Foundations/Utils";
 import * as T from "../../Foundations/Typography";
 import * as TE from "../../Foundations/TablesElements";
 
-import RolesModal from "../../Modals/RolesModal";
+import RolesModal from "../../Modals/OptionsModals/RolesModal";
 
 export default function RolesList() {
   const { rolesData } = useContext(RolesContext);
 
   const [modalController, setModalController] = useState(false);
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const [name, setName] = useState("");
 
   return (
     <>
@@ -44,7 +47,11 @@ export default function RolesList() {
                     width={24}
                     height={24}
                     style={{ cursor: "pointer" }}
-                    onClick={() => setModalController(!modalController)}
+                    onClick={(e) => {
+                      setName(role.name);
+                      setMousePosition({ x: e.clientX, y: e.clientY });
+                      setModalController(!modalController);
+                    }}
                   />
                 </TE.BodyColumn>
               </TE.BodyRow>
@@ -56,6 +63,8 @@ export default function RolesList() {
       <RolesModal
         isOpen={modalController}
         onClose={() => setModalController(!modalController)}
+        position={mousePosition}
+        name={name}
       />
     </>
   );

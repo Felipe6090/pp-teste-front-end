@@ -1,15 +1,21 @@
 import * as S from "./styles";
 
+import Link from "next/link";
+
 type IType = {
   isOpen: boolean;
   onClose: () => void;
+  position: { x: number; y: number };
+  name: string;
 };
 
-export default function RolesModal({ isOpen, onClose }: IType) {
+export default function RolesModal({ isOpen, onClose, position, name }: IType) {
   return (
-    <S.ModalMain open={isOpen} onClose={onClose}>
+    <S.ModalMain open={isOpen} onClose={onClose} position={position}>
       <S.ModalDiv>
-        <S.Options image="eye.png">Ver cargo</S.Options>
+        <Link href={`/positions/${name}`}>
+          <S.Options image="eye.png">Ver cargo</S.Options>
+        </Link>
 
         <S.Options image="edit.png">Editar</S.Options>
 

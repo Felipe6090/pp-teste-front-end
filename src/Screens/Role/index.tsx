@@ -7,7 +7,13 @@ import PermissionsList from "./Components/PermissionsList";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function RoleRoleComponent() {
+import { IRoleDescription } from "../../Types/Api";
+
+type IProps = {
+  role: IRoleDescription;
+};
+
+export default function RoleComponent({ role }: IProps) {
   return (
     <U.DefaultBackground>
       <U.DefaultRow gap="16px">
@@ -31,16 +37,16 @@ export default function RoleRoleComponent() {
         <T.SemiBoldPoppins fontSize="16px">Dados do cargo</T.SemiBoldPoppins>
 
         <U.DefaultRow gap="0" justifyContent="space-between">
-          <InputComponent value="SAC" label="Departamento" />
+          <InputComponent value={role.department} label="Departamento" />
 
-          <InputComponent value="Analista" label="Cargo" />
+          <InputComponent value={role.name} label="Cargo" />
         </U.DefaultRow>
 
         <T.SemiBoldPoppins fontSize="32">
           Listagem de Permisões
         </T.SemiBoldPoppins>
 
-        <PermissionsList />
+        <PermissionsList role={role} />
       </U.DefaultTable>
     </U.DefaultBackground>
   );
