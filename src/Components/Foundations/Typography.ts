@@ -19,6 +19,15 @@ export const SemiBoldPoppins = styled.span`
   color: ${(props: StylesProps) => props.fontColor || "#34423D"};
 `;
 
+export const MediumPoppins = styled.span`
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+
+  font-size: ${(props: StylesProps) => props.fontSize || "16px"};
+
+  color: ${(props: StylesProps) => props.fontColor || "#587169"};
+`;
+
 export const RegularPoppins = styled.span`
   font-family: "Poppins", sans-serif;
 
@@ -40,7 +49,7 @@ export const NavLink = styled.a`
       `
       : `color: #A3B8B0;`};
 
-  min-width: 196px;
+  width: 22%;
   height: 30px;
 
   text-align: center;

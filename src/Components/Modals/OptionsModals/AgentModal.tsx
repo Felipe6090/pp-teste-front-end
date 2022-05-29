@@ -2,8 +2,6 @@ import * as S from "./styles";
 
 import Link from "next/link";
 
-import Backdrop from "@mui/material/Backdrop";
-
 type IType = {
   isOpen: boolean;
   onClose: () => void;

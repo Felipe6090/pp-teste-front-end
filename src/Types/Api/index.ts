@@ -1,29 +1,29 @@
-export type IRoles = {
+export interface IRoles {
   name: string;
   departament: string;
   agents_quantity: number;
-};
+}
 
-type IGroupRules = {
+interface IGroupRules {
   role: string;
   permissions: string[];
-};
+}
 
-export type IRoleDescription = {
+export interface IRoleDescription {
   name: string;
   department: string;
   grouprules: IGroupRules[];
-};
+}
 
-export type IRoleDescriptionRawData = {
+export interface IRoleDescriptionRawData {
   role: IRoleDescription;
-};
+}
 
-export type IRolesApisRawData = {
+export interface IRolesApisRawData {
   roles: IRoles[];
-};
+}
 
-export type IContributors = {
+export interface IContributors {
   agent_id: number;
   name: string;
   image: string;
@@ -31,13 +31,13 @@ export type IContributors = {
   branch: string;
   role: string;
   status: string;
-};
+}
 
-export type IContributorDescriptionRawData = {
+export interface IContributorDescriptionRawData {
   agent: IContributorData;
-};
+}
 
-export type IContributorData = {
+export interface IContributorData {
   id: number;
   name: string;
   email: string;
@@ -47,7 +47,7 @@ export type IContributorData = {
     number: string;
   };
   document: {
-    type: string;
+    interface: string;
     number: string;
   };
   birth_date: string;
@@ -56,8 +56,8 @@ export type IContributorData = {
   branch: string;
   role: string;
   status: string;
-};
+}
 
-export type IContributorsRawData = {
+export interface IContributorsRawData {
   items: IContributors[];
-};
+}

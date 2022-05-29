@@ -1,4 +1,3 @@
-import * as S from "./style"
 import * as U from "../Foundations/Utils";
 import * as T from "../Foundations/Typography";
 
@@ -7,15 +6,16 @@ import Link from "next/link";
 import SearchComponent from "../SearchComponent";
 
 import { useRouter } from "next/router";
-import ContributorsList from "./Components/ContributorsList";
-import RolesList from "./Components/RolesList";
+import ContributorsList from "./Components/Lists/ContributorsList";
+import RolesList from "./Components/Lists/RolesList";
+import ScreenSelection from "./Components/ScreenSelection";
 
 export default function ListComponent() {
   const router = useRouter();
 
   return (
     <U.DefaultTable>
-      <S.NavLinks>
+      <U.NavLinks>
         <Link href="/" passHref>
           <T.NavLink
             pathsHandler={{ pathName: router.pathname, correspondingPath: "/" }}
@@ -34,7 +34,9 @@ export default function ListComponent() {
             Cargos
           </T.NavLink>
         </Link>
-      </S.NavLinks>
+      </U.NavLinks>
+
+      <ScreenSelection />
 
       <SearchComponent />
 

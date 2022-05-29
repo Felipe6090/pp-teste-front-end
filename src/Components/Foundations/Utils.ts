@@ -8,6 +8,8 @@ type IStyled = {
   justifyContent?: string;
   alignSelf?: string;
   column?: boolean;
+  table?: boolean;
+  collapsed?: boolean;
 };
 
 export const DefaultRow = styled.div`
@@ -33,6 +35,15 @@ export const DefaultColumn = styled.div`
   width: 100%;
 
   align-self: ${(props: IStyled) => props.alignSelf || "auto"};
+
+  gap: ${(props: IStyled) => props.gap || "0"};
+
+  ${(props: IStyled) =>
+    props.table ? `${devices.laptop} { display: none; }` : ""}
+
+  ${(props: IStyled) => (props.collapsed ? `display: none;` : ``)}
+
+  transition: 0.7s;
 `;
 
 export const Aside = styled.aside`
@@ -68,4 +79,17 @@ export const DefaultBackground = styled.div`
   flex-direction: column;
 
   gap: 24px;
+`;
+
+export const NavLinks = styled.div`
+  display: flex;
+  border-bottom: 1px solid #eaefed;
+
+  max-height: 30px;
+
+  align-items: flex-start;
+
+  ${devices.laptop} {
+    display: none;
+  }
 `;

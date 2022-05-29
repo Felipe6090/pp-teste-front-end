@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import Image from "next/image";
 
-import { RolesContext } from "../../../Contexts/RolesContext";
+import { RolesContext } from "../../../../Contexts/RolesContext";
 
-import * as U from "../../Foundations/Utils";
-import * as T from "../../Foundations/Typography";
-import * as TE from "../../Foundations/TablesElements";
+import * as U from "../../../Foundations/Utils";
+import * as T from "../../../Foundations/Typography";
+import * as TE from "../../../Foundations/TablesElements";
 
-import RolesModal from "../../Modals/OptionsModals/RolesModal";
+import RolesModal from "../../../Modals/OptionsModals/RolesModal";
 
 export default function RolesList() {
   const { rolesData } = useContext(RolesContext);

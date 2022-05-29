@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import { devices } from "../../Utils/Devices";
+
 interface IStyled {
   width?: string;
   lastChild?: boolean;
@@ -112,4 +114,15 @@ export const ActivedLabel = styled.div`
 
 export const InactiveLabel = styled(ActivedLabel)`
   background-color: #eaefed;
+`;
+
+export const ResponsiveTable = styled.div`
+  display: none;
+
+  ${devices.laptop} {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+  }
 `;
