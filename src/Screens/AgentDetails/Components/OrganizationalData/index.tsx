@@ -17,8 +17,12 @@ export default function OrganizationalData({ agentData }: IProps) {
 
       <U.DefaultRow>
         <S.SelectDiv>
-          <S.Label>Departamento</S.Label>
-          <S.DataSelect defaultValue={agentData.department}>
+          <S.Label htmlFor="department">Departamento</S.Label>
+          <S.DataSelect
+            defaultValue={agentData.department}
+            name="departament"
+            id="departament"
+          >
             {Mock.departaments.map((departament) => (
               <S.DataOptions value={departament} key={Math.random()}>
                 {departament}
@@ -28,8 +32,8 @@ export default function OrganizationalData({ agentData }: IProps) {
         </S.SelectDiv>
 
         <S.SelectDiv>
-          <S.Label>Cargo</S.Label>
-          <S.DataSelect defaultValue={agentData.role}>
+          <S.Label htmlFor="role">Cargo</S.Label>
+          <S.DataSelect defaultValue={agentData.role} name="role" id="role">
             {Mock.roles.map((role) => (
               <S.DataOptions value={role} key={Math.random()}>
                 {role}
@@ -41,8 +45,12 @@ export default function OrganizationalData({ agentData }: IProps) {
 
       <U.DefaultRow>
         <S.SelectDiv>
-          <S.Label>Unidade</S.Label>
-          <S.DataSelect defaultValue={agentData.branch}>
+          <S.Label htmlFor="branch">Unidade</S.Label>
+          <S.DataSelect
+            defaultValue={agentData.branch}
+            name="branch"
+            id="branch"
+          >
             {Mock.unitys.map((unity) => (
               <S.DataOptions value={unity} key={Math.random()}>
                 {unity}
@@ -52,8 +60,12 @@ export default function OrganizationalData({ agentData }: IProps) {
         </S.SelectDiv>
 
         <S.SelectDiv>
-          <S.Label>Status</S.Label>
-          <S.DataSelect defaultValue={agentData.status}>
+          <S.Label htmlFor="status">Status</S.Label>
+          <S.DataSelect
+            defaultValue={agentData.status}
+            name="status"
+            id="status"
+          >
             <S.DataOptions value="Ativo">Ativo</S.DataOptions>
 
             <S.DataOptions value="Inativo">Inativo</S.DataOptions>

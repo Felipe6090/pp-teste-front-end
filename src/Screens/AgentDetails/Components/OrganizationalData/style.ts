@@ -16,36 +16,33 @@ export const MainDiv = styled.div`
 `;
 
 export const SelectDiv = styled.div`
-  border: solid 1px #587169;
-  border-radius: 5px;
-
   position: relative;
 
-  min-height: 56px;
   width: 100%;
-
-  padding: 0 20px;
-
-  background-color: #f5faf8;
 
   display: flex;
   align-items: center;
-
-  cursor: pointer;
 `;
 
 export const DataSelect = styled.select`
-  border: none;
-  outline: 0;
-
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  border: solid 1px #587169;
+  border-radius: 5px;
 
   color: #587169;
 
   background-color: #f5faf8;
 
+  outline: 0;
+
+  padding: 0 20px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+
   width: 100%;
+  min-height: 56px;
+
+  cursor: pointer;
 `;
 
 export const DataOptions = styled.option``;
@@ -55,10 +52,12 @@ export const Label = styled.label`
   font-size: 14px;
   color: #a3b8b0;
 
-  background: linear-gradient(#fff 50%, #f5faf8 50%);
+  margin-left: 20px;
+
+  background: linear-gradient(#fff 55%, #f5faf8 45%);
 
   position: absolute;
-  padding: 0 5px;
+  padding: 0 2px;
 
   transform: translate(0, -30px);
 `;
