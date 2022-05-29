@@ -4,13 +4,13 @@ import * as U from "../../../../Components/Foundations/Utils";
 
 import Mock from "./Mocks";
 
+import { IContributorData } from "../../../../Types/Api";
+
 type IProps = {
-  cardName: string;
-  cardInfo: string;
-  img: string;
+  agentData: IContributorData;
 };
 
-export default function OrganizationalData() {
+export default function OrganizationalData({ agentData }: IProps) {
   return (
     <S.MainDiv>
       <T.RegularPoppins fontSize="18px">Dados organizacionais</T.RegularPoppins>
@@ -18,7 +18,7 @@ export default function OrganizationalData() {
       <U.DefaultRow>
         <S.SelectDiv>
           <S.Label>Departamento</S.Label>
-          <S.DataSelect defaultValue={"Comercial"}>
+          <S.DataSelect defaultValue={agentData.department}>
             {Mock.departaments.map((departament) => (
               <S.DataOptions value={departament} key={Math.random()}>
                 {departament}
@@ -29,7 +29,7 @@ export default function OrganizationalData() {
 
         <S.SelectDiv>
           <S.Label>Cargo</S.Label>
-          <S.DataSelect defaultValue={"Gerente"}>
+          <S.DataSelect defaultValue={agentData.role}>
             {Mock.roles.map((role) => (
               <S.DataOptions value={role} key={Math.random()}>
                 {role}
@@ -42,7 +42,7 @@ export default function OrganizationalData() {
       <U.DefaultRow>
         <S.SelectDiv>
           <S.Label>Unidade</S.Label>
-          <S.DataSelect defaultValue={"Unidade 1"}>
+          <S.DataSelect defaultValue={agentData.branch}>
             {Mock.unitys.map((unity) => (
               <S.DataOptions value={unity} key={Math.random()}>
                 {unity}
@@ -53,7 +53,7 @@ export default function OrganizationalData() {
 
         <S.SelectDiv>
           <S.Label>Status</S.Label>
-          <S.DataSelect defaultValue={"Ativo"}>
+          <S.DataSelect defaultValue={agentData.status}>
             <S.DataOptions value="Ativo">Ativo</S.DataOptions>
 
             <S.DataOptions value="Inativo">Inativo</S.DataOptions>

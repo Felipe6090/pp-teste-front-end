@@ -5,10 +5,13 @@ import * as U from "../../Components/Foundations/Utils";
 import Image from "next/image";
 import Link from "next/link";
 
+import dayjs from "dayjs";
+
 import CardComponent from "./Components/CardsComponents";
 import OrganizationalData from "./Components/OrganizationalData";
 
 import { IContributorData } from "../../Types/Api";
+import { cpfMask } from "../../Utils/Masks";
 
 type IProps = {
   agentData: IContributorData;
@@ -50,7 +53,7 @@ export default function AgentDetailsScreen({ agentData }: IProps) {
             </T.SemiBoldPoppins>
 
             <T.RegularPoppins fontSize="14px">
-            xyz
+              {agentData.email}
             </T.RegularPoppins>
           </S.NameColumn>
         </U.DefaultRow>
@@ -62,24 +65,24 @@ export default function AgentDetailsScreen({ agentData }: IProps) {
         <S.PersonalInfosDiv>
           <CardComponent
             cardName="CPF"
-            cardInfo="601 189 760 60"
+            cardInfo={cpfMask(agentData.document.number)}
             img="/cpf-icon.png"
           />
 
           <CardComponent
             cardName="Telefone"
-            cardInfo="+55 89 2635 5467"
+            cardInfo={`+${agentData.phone.ddi} ${agentData.phone.ddd} ${agentData.phone.number}`}
             img="/phone-icon.png"
           />
 
           <CardComponent
             cardName="Nascimento"
-            cardInfo="29/11/1990"
+            cardInfo={dayjs(agentData.birth_date).format("DD/MM/YYYY")}
             img="/calendar-icon.png"
           />
         </S.PersonalInfosDiv>
 
-        <OrganizationalData />
+        <OrganizationalData agentData={agentData} />
       </U.DefaultTable>
     </S.MainDiv>
   );
