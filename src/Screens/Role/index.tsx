@@ -22,18 +22,26 @@ export default function RoleRoleComponent() {
           />
         </Link>
 
-        <T.SemiBoldPoppins fontSize="32px">Dados do cargo</T.SemiBoldPoppins>
+        <T.SemiBoldPoppins fontSize="32px">
+          Cargos e permissões
+        </T.SemiBoldPoppins>
       </U.DefaultRow>
 
-      <U.DefaultRow gap="0" justifyContent="space-between" >
-        <InputComponent value="SAC" label="Departamento" />
+      <U.DefaultTable>
+        <T.SemiBoldPoppins fontSize="16px">Dados do cargo</T.SemiBoldPoppins>
 
-        <InputComponent value="Analista" label="Cargo" />
-      </U.DefaultRow>
+        <U.DefaultRow gap="0" justifyContent="space-between">
+          <InputComponent value="SAC" label="Departamento" />
 
-      <T.SemiBoldPoppins fontSize="32">Listagem de Permisões</T.SemiBoldPoppins>
+          <InputComponent value="Analista" label="Cargo" />
+        </U.DefaultRow>
 
-      <PermissionsList />
+        <T.SemiBoldPoppins fontSize="32">
+          Listagem de Permisões
+        </T.SemiBoldPoppins>
+
+        <PermissionsList />
+      </U.DefaultTable>
     </U.DefaultBackground>
   );
 }

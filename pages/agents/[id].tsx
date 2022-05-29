@@ -3,12 +3,9 @@ import AgentDetailsScreen from "../../src/Screens/AgentDetails";
 
 import { api } from "../../src/Services/Api";
 
-import {
-  IContributorData,
-  IContributorDescriptionRawData,
-  IContributors,
-  IContributorsRawData,
-} from "../../src/Types/Api";
+type IType = { notFound: boolean };
+
+import { IContributors, IContributorsRawData } from "../../src/Types/Api";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const agentsRawData: IContributorsRawData = await api
@@ -34,21 +31,38 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const rolesRawData: IContributorDescriptionRawData = await api
-    .get(`/agent/1`)
-    .then((res) => res.data);
+  if (!context.params) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
-  const agentData: IContributorData = rolesRawData.agent;
+  const response = await api
+    .get(`/agent/${context.params.id}`)
+    .then((res) => {
+      return {
+        props: {
+          data: res.data.agent,
+        },
+      };
+    })
+    .catch((err) => {
+      return {
+        props: {
+          data: null,
+        },
+        notFound: true,
+      };
+    });
 
-  return {
-    props: {
-      data: agentData,
-    },
-  };
+  return response;
 };
 
 export default function AgentDetails({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <AgentDetailsScreen />;
+  return <AgentDetailsScreen agentData={data} />;
 }

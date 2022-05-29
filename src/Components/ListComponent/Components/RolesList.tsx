@@ -4,8 +4,9 @@ import Image from "next/image";
 import { RolesContext } from "../../../Contexts/RolesContext";
 
 import * as S from "./style";
-import * as T from "../../Foundations/Typography";
 import * as U from "../../Foundations/Utils";
+import * as T from "../../Foundations/Typography";
+import * as TE from "../../Foundations/TablesElements";
 
 import RolesModal from "../../Modals/RolesModal";
 
@@ -19,37 +20,37 @@ export default function RolesList() {
       <T.SemiBoldPoppins fontSize="16px">Listagem de cargos</T.SemiBoldPoppins>
 
       <U.DefaultColumn>
-        <S.TableHead>
-          <S.HeadColumn width="25%">Cargo</S.HeadColumn>
-          <S.HeadColumn width="25%">Departamento</S.HeadColumn>
-          <S.HeadColumn width="50%" lastChild>
+        <TE.TableHead>
+          <TE.HeadColumn width="25%">Cargo</TE.HeadColumn>
+          <TE.HeadColumn width="25%">Departamento</TE.HeadColumn>
+          <TE.HeadColumn width="50%" lastChild>
             Colaboradores
-          </S.HeadColumn>
-        </S.TableHead>
+          </TE.HeadColumn>
+        </TE.TableHead>
 
-        <S.TableBody>
+        <TE.TableBody>
           {rolesData.map((role) => {
             return (
-              <S.BodyRow key={Math.random()} status="active">
-                <S.BodyColumn width="163.5px">{role.name}</S.BodyColumn>
-                <S.BodyColumn width="191.5px">{role.departament}</S.BodyColumn>
-                <S.BodyColumn width="456px">
+              <TE.BodyRow key={Math.random()} status="active">
+                <TE.BodyColumn width="25%">{role.name}</TE.BodyColumn>
+                <TE.BodyColumn width="25%">{role.departament}</TE.BodyColumn>
+                <TE.BodyColumn width="50%" justifyContent="space-between">
                   {role.agents_quantity}
-                </S.BodyColumn>
 
-                <Image
-                  src="/more-vertical.png"
-                  alt="More options button"
-                  layout="fixed"
-                  width={24}
-                  height={24}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setModalController(!modalController)}
-                />
-              </S.BodyRow>
+                  <Image
+                    src="/more-vertical.png"
+                    alt="More options button"
+                    layout="fixed"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setModalController(!modalController)}
+                  />
+                </TE.BodyColumn>
+              </TE.BodyRow>
             );
           })}
-        </S.TableBody>
+        </TE.TableBody>
       </U.DefaultColumn>
 
       <RolesModal

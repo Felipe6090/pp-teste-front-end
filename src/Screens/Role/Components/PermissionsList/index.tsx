@@ -1,56 +1,63 @@
-import * as S from "./style";
+import * as U from "../../../../Components/Foundations/Utils";
+import * as TE from "../../../../Components/Foundations/TablesElements";
 
 import Image from "next/image";
+
+import Checkbox from "@mui/material/Checkbox";
 
 export default function PermissionsList() {
   return (
     <>
-      <S.Table>
-        <S.TableHead>
-          <S.HeadColumn width="500px">Cargo</S.HeadColumn>
-          <S.HeadColumn width="96px">Ler</S.HeadColumn>
-          <S.HeadColumn width="96px">Editar</S.HeadColumn>
-          <S.HeadColumn width="96px" lastChild>
-            Excluir
-          </S.HeadColumn>
-        </S.TableHead>
+      <U.DefaultColumn alignSelf="center">
+        <TE.TableHead>
+          <TE.HeadColumn width="55%">Cargo</TE.HeadColumn>
+          <TE.HeadColumn width="15%">Ler</TE.HeadColumn>
+          <TE.HeadColumn width="15%">Editar</TE.HeadColumn>
+          <TE.HeadColumn width="15%">Excluir</TE.HeadColumn>
+        </TE.TableHead>
 
-        <S.TableBody>
-          <S.BodyRow status="active">
-            <S.BodyColumn width="500px">Cargo</S.BodyColumn>
+        <TE.TableBody>
+          <TE.BodyRow status="active">
+            <TE.BodyColumn width="55%">Cargo</TE.BodyColumn>
 
-            <S.BodyColumn width="96px">
-              <Image
-                src="/green-checkbox.png"
-                alt="Read Permission Checkbox"
-                layout="fixed"
-                width={20}
-                height={24}
+            <TE.BodyColumn width="15%">
+              <Checkbox
+                defaultChecked
+                sx={{
+                  color: "#1dd195",
+                  "&.Mui-checked": {
+                    color: "#1dd195",
+                  },
+                }}
               />
-            </S.BodyColumn>
+            </TE.BodyColumn>
 
-            <S.BodyColumn width="96px">
-              <Image
-                src="/green-checkbox.png"
-                alt="Read Permission Checkbox"
-                layout="fixed"
-                width={20}
-                height={24}
+            <TE.BodyColumn width="15%">
+              <Checkbox
+                defaultChecked
+                sx={{
+                  color: "#1dd195",
+                  "&.Mui-checked": {
+                    color: "#1dd195",
+                  },
+                }}
               />
-            </S.BodyColumn>
+            </TE.BodyColumn>
 
-            <S.BodyColumn width="96px" lastChild>
-              <Image
-                src="/green-checkbox.png"
-                alt="Read Permission Checkbox"
-                layout="fixed"
-                width={20}
-                height={24}
+            <TE.BodyColumn width="15%">
+              <Checkbox
+                defaultChecked
+                sx={{
+                  color: "#1dd195",
+                  "&.Mui-checked": {
+                    color: "#1dd195",
+                  },
+                }}
               />
-            </S.BodyColumn>
-          </S.BodyRow>
-        </S.TableBody>
-      </S.Table>
+            </TE.BodyColumn>
+          </TE.BodyRow>
+        </TE.TableBody>
+      </U.DefaultColumn>
     </>
   );
 }

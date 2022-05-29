@@ -7,15 +7,6 @@ type IStyled = {
   avatar?: string;
 };
 
-export const Table = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  max-width: 902px;
-
-  align-self: center;
-`;
-
 export const TableHead = styled.div`
   height: 50px;
   display: flex;

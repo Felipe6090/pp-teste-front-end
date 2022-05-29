@@ -9,10 +9,18 @@ import * as S from "./style";
 import * as U from "../../Foundations/Utils";
 import * as T from "../../Foundations/Typography";
 
+import { IContributorData } from "../../../Types/Api";
+
 export default function ContributorsList() {
   const { contributorsData } = useContext(ContributorsContext);
 
   const [modalController, setModalController] = useState(false);
+
+  const [id, setId] = useState(0);
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  function showOptionsController(id: number) {}
 
   return (
     <>
@@ -55,7 +63,11 @@ export default function ContributorsList() {
                     width={24}
                     height={24}
                     style={{ cursor: "pointer" }}
-                    onClick={() => setModalController(!modalController)}
+                    onClick={(e) => {
+                      setMousePosition({ x: e.clientX, y: e.clientY });
+                      setId(item.agent_id);
+                      setModalController(!modalController);
+                    }}
                   />
                 </S.StatusDiv>
               </S.BodyRow>
@@ -67,6 +79,8 @@ export default function ContributorsList() {
       <AgentModal
         isOpen={modalController}
         onClose={() => setModalController(!modalController)}
+        position={mousePosition}
+        id={id}
       />
     </>
   );

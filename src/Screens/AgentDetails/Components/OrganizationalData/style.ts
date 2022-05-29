@@ -55,7 +55,7 @@ export const Label = styled.label`
   font-size: 14px;
   color: #a3b8b0;
 
-  background-color: #f5faf8;
+  background: linear-gradient(#fff 50%, #f5faf8 50%);
 
   position: absolute;
   padding: 0 5px;

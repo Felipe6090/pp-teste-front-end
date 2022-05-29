@@ -1,15 +1,22 @@
 import * as S from "./styles";
 
+import { IContributorData } from "../../../Types/Api";
+import Link from "next/link";
+
 type IType = {
   isOpen: boolean;
   onClose: () => void;
+  position: { x: number; y: number };
+  id: number;
 };
 
-export default function AgentModal({ isOpen, onClose }: IType) {
+export default function AgentModal({ isOpen, onClose, position, id }: IType) {
   return (
-    <S.ModalMain open={isOpen} onClose={onClose}>
+    <S.ModalMain open={isOpen} onClose={onClose} position={position}>
       <S.ModalDiv>
-        <S.Options image="eye.png">Ver colaborador</S.Options>
+        <Link href={`agents/${id}`}>
+          <S.Options image="eye.png">Ver colaborador</S.Options>
+        </Link>
 
         <S.Options image="trash-2.png" onClick={() => onClose()}>
           Excluir

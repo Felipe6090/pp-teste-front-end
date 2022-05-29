@@ -6,16 +6,20 @@ type IStyled = {
   image: string;
 };
 
+type IModalBody = {
+  position: { x: number; y: number };
+};
+
 export const ModalMain = styled(ModalUnstyled)`
-  outline: none;
   position: fixed;
   z-index: 2;
 
-  right: 55px;
-  top: 70px;
+  left: ${(props: IModalBody) => `${props.position.x - 350}px`};
+  top: ${(props: IModalBody) => `${props.position.y - 150}px`};
 `;
 
 export const ModalDiv = styled.div`
+  outline: none;
   min-width: 340px;
 
   display: flex;
