@@ -30,39 +30,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  if (!context.params) {
+  const response = await api.get(`/role/1`).then((res) => {
+    return res.data;
+  });
+
+  if (response === undefined) {
     return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
+      props: {},
+      notFound: true,
     };
   }
 
-  const response = await api
-    .get(`/role/1`)
-    .then((res) => {
-      return {
-        props: {
-          data: res.data.role,
-        },
-      };
-    })
-    .catch((err) => {
-      return {
-        props: {
-          data: null,
-        },
-        notFound: true,
-      };
-    });
+  const roleData = response.role;
 
-  return response;
+  return {
+    props: { data: roleData },
+  };
 };
 
 export default function Role({

@@ -3,8 +3,6 @@ import AgentDetailsScreen from "../../src/Screens/AgentDetails";
 
 import { api } from "../../src/Services/Api";
 
-type IType = { notFound: boolean };
-
 import { IContributors, IContributorsRawData } from "../../src/Types/Api";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -26,39 +24,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  if (!context.params) {
+  const response = await api.get(`/agent/1`).then((res) => {
+    return res.data;
+  });
+
+  if (response === undefined) {
     return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
+      props: {},
+      notFound: true,
     };
   }
 
-  const response = await api
-    .get(`/agent/${context.params.id}`)
-    .then((res) => {
-      return {
-        props: {
-          data: res.data.agent,
-        },
-      };
-    })
-    .catch((err) => {
-      return {
-        props: {
-          data: null,
-        },
-        notFound: true,
-      };
-    });
+  const agentData = response.agent;
 
-  return response;
+  return {
+    props: { data: agentData },
+  };
 };
 
 export default function AgentDetails({
