@@ -10,6 +10,7 @@ type IStyled = {
   column?: boolean;
   table?: boolean;
   collapsed?: boolean;
+  width?: string;
 };
 
 export const DefaultRow = styled.div`
@@ -32,7 +33,7 @@ export const DefaultColumn = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 100%;
+  width: ${(props: IStyled) => props.width || "100%"};
 
   align-self: ${(props: IStyled) => props.alignSelf || "auto"};
 

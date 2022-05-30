@@ -14,7 +14,7 @@ export const MainDiv = styled.div`
 
   transition: 0.5s;
 
-  gap: ${(props: IProps) => (props.collapsed ? "0" : "16px")};
+  gap: ${(props: IProps) => (props.collapsed ? "0" : "30px")};
 
   border: ${(props: IProps) =>
     props.collapsed ? "1px solid #eaefed" : "1px solid #b5f1dd"};
@@ -27,8 +27,7 @@ export const FildInfo = styled.span`
   font-size: 12px;
   font-weight: 600;
 
-  color: ${(props: IProps) =>
-    props.status === "active" ? `#587169` : `#A3B8B0`};
+  color: ${(props: IProps) => (props.status === "active" ? `#` : `#A3B8B0`)};
 
   ${(props: IProps) =>
     props.avatar &&
@@ -65,7 +64,9 @@ export const ActionsButton = styled.div`
   border-radius: 10px;
 
   height: 52px;
-  width: 90%;
+  width: 99%;
+
+  transition: 2s;
 
   &::before {
     background-image: url("/file-plus.png");
@@ -80,8 +81,6 @@ export const ActionsButton = styled.div`
 
     margin-right: 8px;
   }
-
-  transition: 2s;
 
   ${(props: IProps) => (props.collapsed ? `display: none;` : ``)}
 `;

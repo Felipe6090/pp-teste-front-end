@@ -31,13 +31,14 @@ export default function ContributorsList() {
             modalHandler={(e) => {
               setMousePosition({ x: e.clientX, y: e.clientY });
               setId(item.agent_id);
-              console.log(id + "  " + mousePosition);
               setModalController(!modalController);
             }}
             data={item}
             key={item.agent_id}
           />
         ))}
+
+        <TE.LoadMore>Carregar Mais</TE.LoadMore>
       </TE.ResponsiveTable>
 
       <U.DefaultColumn table alignSelf="center">

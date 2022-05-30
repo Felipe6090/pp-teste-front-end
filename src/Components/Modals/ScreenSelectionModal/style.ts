@@ -2,24 +2,19 @@ import styled from "@emotion/styled";
 
 import { ModalUnstyled } from "@mui/base";
 
-type IStyled = {
-  image: string;
-  position?: { x: number; y: number };
-};
-
-type IModal = {
-  position: { x: number; y: number };
-};
-
 export const ModalMain = styled(ModalUnstyled)`
   position: fixed;
 
-  left: 10%;
-  bottom: 10%;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, 0);
 `;
 
 export const ModalDiv = styled.div`
   outline: none;
+
+  box-shadow: 1px 2px 18px;
 
   min-width: 70vw;
 

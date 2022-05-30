@@ -1,59 +1,62 @@
-import { IRoles, IContributors } from "../../../../Types/Api";
+import { IRoles } from "../../../../Types/Api";
 import Image from "next/image";
 
 import * as S from "./style";
 import * as U from "../../../Foundations/Utils";
-import * as T from "../../../Foundations/Typography";
 import * as TE from "../../../Foundations/TablesElements";
+import { useState } from "react";
 
 type IProps = {
-  data: IContributors;
+  data: IRoles;
+  modalHandler: (e: any) => void;
 };
 
-export default function RolesCollapseComponent({ data }: IProps) {
+export default function RolesCollapseComponent({ data, modalHandler }: IProps) {
+  const status = "active";
+
+  const [collapseHandler, setCollapseHandler] = useState(true);
+
   return (
-    <S.MainDiv>
-      <U.DefaultColumn>
-        <U.DefaultColumn>
-          <TE.HeadColumn width="25%">Nome Completo</TE.HeadColumn>
+    <S.MainDiv collapsed={collapseHandler}>
+      <U.DefaultRow
+        justifyContent="space-between"
+        onClick={() => setCollapseHandler(!collapseHandler)}
+        gap="0"
+      >
+        <U.DefaultColumn width="auto" gap="2px;">
+          <TE.HeadColumn width="auto">Cargo</TE.HeadColumn>
 
-          <U.DefaultRow>
-            <TE.BodyColumn width="25%" avatar={data.image}>
-              {data.name}
-            </TE.BodyColumn>
-
-            <Image
-              src={"/arrow-up.png"}
-              alt="More options button"
-              layout="fixed"
-              width={24}
-              height={24}
-              style={{ cursor: "pointer" }}
-              onClick={(e) => {}}
-            />
-          </U.DefaultRow>
+          <S.FildInfo status={status}>{data.name}</S.FildInfo>
         </U.DefaultColumn>
 
-        <U.DefaultColumn>
-          <TE.HeadColumn width="25%">Dapartamento</TE.HeadColumn>
-          <TE.BodyColumn width="25%">{data.department}</TE.BodyColumn>
+        <U.DefaultColumn width="auto" gap="2px;" collapsed={collapseHandler}>
+          <TE.HeadColumn width="auto">Departamento</TE.HeadColumn>
+
+          <S.FildInfo status={status}>{data.departament}</S.FildInfo>
         </U.DefaultColumn>
 
-        <U.DefaultColumn>
-          <TE.HeadColumn width="25%">Cargo</TE.HeadColumn>
-          <TE.BodyColumn width="25%">{data.role}</TE.BodyColumn>
-        </U.DefaultColumn>
+        <Image
+          src={collapseHandler ? "/arrow-up.png" : "/arrow-down.png"}
+          alt="More options button"
+          layout="fixed"
+          width={24}
+          height={24}
+          style={{ cursor: "pointer" }}
+        />
+      </U.DefaultRow>
 
-        <U.DefaultColumn>
-          <TE.HeadColumn width="25%">unidade</TE.HeadColumn>
-          <TE.BodyColumn width="25%">Unidade 1</TE.BodyColumn>
-        </U.DefaultColumn>
+      <U.DefaultColumn width="auto" gap="2px;" collapsed={collapseHandler}>
+        <TE.HeadColumn width="auto">Colaboradores</TE.HeadColumn>
 
-        <U.DefaultColumn>
-          <TE.HeadColumn width="25%">Nome Completo</TE.HeadColumn>
-          <TE.BodyColumn width="25%">{data.status}</TE.BodyColumn>
-        </U.DefaultColumn>
+        <S.FildInfo status={status}>{data.agents_quantity}</S.FildInfo>
       </U.DefaultColumn>
+
+      <S.ActionsButton
+        onClick={(e) => modalHandler(e)}
+        collapsed={collapseHandler}
+      >
+        Ações
+      </S.ActionsButton>
     </S.MainDiv>
   );
 }

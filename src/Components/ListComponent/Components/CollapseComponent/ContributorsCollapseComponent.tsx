@@ -1,7 +1,7 @@
-import { IRoles, IContributors } from "../../../../Types/Api";
+import { IContributors } from "../../../../Types/Api";
 import Image from "next/image";
 
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 
 import * as S from "./style";
 import * as U from "../../../Foundations/Utils";
@@ -21,7 +21,7 @@ export default function ContributorsCollapseComponent({
   return (
     <S.MainDiv collapsed={collapseHandler}>
       <U.DefaultColumn
-        gap="2px;"
+        gap="15px;"
         onClick={() => setCollapseHandler(!collapseHandler)}
       >
         <TE.HeadColumn width="25%">Nome Completo</TE.HeadColumn>

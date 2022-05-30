@@ -9,6 +9,8 @@ import * as TE from "../../../Foundations/TablesElements";
 
 import RolesModal from "../../../Modals/OptionsModals/RolesModal";
 
+import RolesCollapseComponent from "../CollapseComponent/RolesCollapseComponent";
+
 export default function RolesList() {
   const { rolesData } = useContext(RolesContext);
 
@@ -22,7 +24,23 @@ export default function RolesList() {
     <>
       <T.SemiBoldPoppins fontSize="16px">Listagem de cargos</T.SemiBoldPoppins>
 
-      <U.DefaultColumn>
+      <TE.ResponsiveTable>
+        {rolesData.map((item) => (
+          <RolesCollapseComponent
+            modalHandler={(e) => {
+              setMousePosition({ x: e.clientX, y: e.clientY });
+              setName(item.name);
+              setModalController(!modalController);
+            }}
+            data={item}
+            key={Math.random()}
+          />
+        ))}
+
+        <TE.LoadMore>Carregar Mais</TE.LoadMore>
+      </TE.ResponsiveTable>
+
+      <U.DefaultColumn table>
         <TE.TableHead>
           <TE.HeadColumn width="25%">Cargo</TE.HeadColumn>
           <TE.HeadColumn width="25%">Departamento</TE.HeadColumn>

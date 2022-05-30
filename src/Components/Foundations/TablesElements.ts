@@ -126,3 +126,38 @@ export const ResponsiveTable = styled.div`
     gap: 10px;
   }
 `;
+
+export const LoadMore = styled.div`
+  display: flex;
+  align-items: center;
+
+  align-self: center;
+  justify-content: center;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #34423d;
+
+  border: 1px solid #b5f1dd;
+  border-radius: 10px;
+
+  height: 52px;
+  width: 99%;
+
+  margin-top: 14px;
+
+  &::before {
+    background-image: url("/refresh-icon.png");
+    background-size: 32px 32px;
+    display: inline-block;
+
+    border-radius: 20px;
+    content: "";
+
+    width: 32px;
+    height: 32px;
+
+    margin-right: 8px;
+  }
+`;
