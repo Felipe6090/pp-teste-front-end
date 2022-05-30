@@ -6,6 +6,7 @@ type IStyled = {
   margin?: string;
   padding?: string;
   justifyContent?: string;
+  alignItems?: string;
   alignSelf?: string;
   column?: boolean;
   table?: boolean;
@@ -23,6 +24,9 @@ export const DefaultRow = styled.div`
     `justify-content: ${props.justifyContent};`}
 
   margin: ${(props: IStyled) => props.margin || "0"};
+
+  ${(props: IStyled) =>
+    props.alignItems !== undefined && `align-items: ${props.alignItems};`}
 
   ${devices.laptop} {
     ${(props: IStyled) => props.column === true && `flex-direction: column;`}

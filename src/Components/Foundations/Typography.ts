@@ -30,8 +30,11 @@ export const MediumPoppins = styled.span`
 
 export const RegularPoppins = styled.span`
   font-family: "Poppins", sans-serif;
+  font-weight: 500;
 
   font-size: ${(props: StylesProps) => props.fontSize || "12px"};
+
+  color: ${(props: StylesProps) => props.fontColor || "#000"};
 `;
 
 export const NavLink = styled.a`

@@ -20,6 +20,8 @@ export default function RolesList() {
 
   const [name, setName] = useState("");
 
+  const [itemsAmount, setItemsAmount] = useState(10);
+
   return (
     <>
       <T.SemiBoldPoppins fontSize="16px">Listagem de cargos</T.SemiBoldPoppins>
@@ -76,6 +78,31 @@ export default function RolesList() {
             );
           })}
         </TE.TableBody>
+
+        <U.DefaultRow justifyContent="space-between" margin=" 30px 0 0 0">
+          <U.DefaultRow alignItems="center">
+            <T.RegularPoppins fontSize="16px" fontColor="#587169">
+              {`Mostrando ${itemsAmount} de 50 registros`}
+            </T.RegularPoppins>
+
+            <TE.NumbersSelect
+              defaultValue={itemsAmount}
+              onChange={(e) => setItemsAmount(Number(e.target.value))}
+            >
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={30}>30</option>
+            </TE.NumbersSelect>
+          </U.DefaultRow>
+
+          <U.DefaultRow alignItems="center">
+            <TE.PassArrows toLeft />
+            <T.SemiBoldPoppins fontColor="#587169" fontSize="16px">
+              1 de 10
+            </T.SemiBoldPoppins>
+            <TE.PassArrows />
+          </U.DefaultRow>
+        </U.DefaultRow>
       </U.DefaultColumn>
 
       <RolesModal

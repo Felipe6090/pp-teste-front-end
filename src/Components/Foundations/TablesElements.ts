@@ -8,6 +8,7 @@ interface IStyled {
   status?: string;
   avatar?: string;
   justifyContent?: string;
+  toLeft?: boolean;
 }
 
 interface ITableColumn extends IStyled {
@@ -160,4 +161,43 @@ export const LoadMore = styled.div`
 
     margin-right: 8px;
   }
+`;
+
+export const NumbersSelect = styled.select`
+  border: solid 1px #587169;
+  border-radius: 5px;
+
+  color: #587169;
+
+  background-color: #f5faf8;
+
+  outline: 0;
+
+  padding: 0 10px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+
+  min-height: 30px;
+
+  cursor: pointer;
+`;
+
+export const PassArrows = styled.div`
+  padding: 6 12px;
+
+  border: solid 1px #709085;
+
+  ${(props: IStyled) =>
+    props.toLeft
+      ? `
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  `
+      : `
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  `}
+
+  content: url(${(props: IStyled) => props.toLeft ? "/arrow-left.png" : "/arrow-right.png"}) ;
 `;
