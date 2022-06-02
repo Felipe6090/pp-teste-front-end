@@ -4,8 +4,6 @@ export const MainDiv = styled.div`
   border: solid 1px #cad6d1;
   border-radius: 5px;
 
-  position: relative;
-
   min-height: 52px;
 
   padding: 0 20px;
@@ -25,6 +23,8 @@ export const SearchInput = styled.input`
 
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+
+  width: 100%;
 
   color: #587169;
 `;
