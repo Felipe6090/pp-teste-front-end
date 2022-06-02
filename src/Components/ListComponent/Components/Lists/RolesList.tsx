@@ -22,12 +22,14 @@ export default function RolesList() {
 
   const [itemsAmount, setItemsAmount] = useState(10);
 
+  const setPagesAmout = (value: number) => Math.ceil(rolesData.length / value);
+
   return (
     <>
       <T.SemiBoldPoppins fontSize="16px">Listagem de cargos</T.SemiBoldPoppins>
 
       <TE.ResponsiveTable>
-        {rolesData.map((item) => (
+        {rolesData.slice(0, itemsAmount).map((item) => (
           <RolesCollapseComponent
             modalHandler={(e) => {
               setMousePosition({ x: e.clientX, y: e.clientY });
@@ -52,7 +54,7 @@ export default function RolesList() {
         </TE.TableHead>
 
         <TE.TableBody>
-          {rolesData.map((role) => {
+          {rolesData.slice(0, itemsAmount).map((role) => {
             return (
               <TE.BodyRow key={Math.random()} status="active">
                 <TE.BodyColumn width="25%">{role.name}</TE.BodyColumn>
@@ -82,7 +84,7 @@ export default function RolesList() {
         <U.DefaultRow justifyContent="space-between" margin=" 30px 0 0 0">
           <U.DefaultRow alignItems="center">
             <T.RegularPoppins fontSize="16px" fontColor="#587169">
-              {`Mostrando ${itemsAmount} de 50 registros`}
+              {`Mostrando ${itemsAmount} de ${rolesData.length} registros`}
             </T.RegularPoppins>
 
             <TE.NumbersSelect
@@ -98,7 +100,7 @@ export default function RolesList() {
           <U.DefaultRow alignItems="center">
             <TE.PassArrows toLeft />
             <T.SemiBoldPoppins fontColor="#587169" fontSize="16px">
-              1 de 10
+              1 de {setPagesAmout(itemsAmount)}
             </T.SemiBoldPoppins>
             <TE.PassArrows />
           </U.DefaultRow>

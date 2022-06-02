@@ -21,6 +21,9 @@ export default function ContributorsList() {
 
   const [itemsAmount, setItemsAmount] = useState(10);
 
+  const setPagesAmout = (value: number) =>
+    Math.ceil(contributorsData.length / value);
+
   return (
     <>
       <T.SemiBoldPoppins fontSize="16px">
@@ -28,7 +31,7 @@ export default function ContributorsList() {
       </T.SemiBoldPoppins>
 
       <TE.ResponsiveTable>
-        {contributorsData.map((item) => (
+        {contributorsData.slice(0, itemsAmount).map((item) => (
           <ContributorsCollapseComponent
             modalHandler={(e) => {
               setMousePosition({ x: e.clientX, y: e.clientY });
@@ -55,7 +58,7 @@ export default function ContributorsList() {
         </TE.TableHead>
 
         <TE.TableBody>
-          {contributorsData.map((item) => {
+          {contributorsData.slice(0, itemsAmount).map((item) => {
             return (
               <TE.BodyRow key={item.agent_id} status={item.status}>
                 <TE.BodyColumn width="25%" avatar={item.image}>
@@ -93,7 +96,7 @@ export default function ContributorsList() {
         <U.DefaultRow justifyContent="space-between" margin=" 30px 0 0 0">
           <U.DefaultRow alignItems="center">
             <T.RegularPoppins fontSize="16px" fontColor="#587169">
-              {`Mostrando ${itemsAmount} de 50 registros`}
+              {`Mostrando ${itemsAmount} de ${contributorsData.length} registros`}
             </T.RegularPoppins>
 
             <TE.NumbersSelect
@@ -109,7 +112,7 @@ export default function ContributorsList() {
           <U.DefaultRow alignItems="center">
             <TE.PassArrows toLeft />
             <T.SemiBoldPoppins fontColor="#587169" fontSize="16px">
-              1 de 10
+              1 de {setPagesAmout(itemsAmount)}
             </T.SemiBoldPoppins>
             <TE.PassArrows />
           </U.DefaultRow>
